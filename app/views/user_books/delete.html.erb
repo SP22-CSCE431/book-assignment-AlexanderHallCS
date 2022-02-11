@@ -1,0 +1,8 @@
+<%= link_to 'Back', user_book_path %>
+<h1>Deleting User Book</h1>
+<%= form_for(@user_book, :url => user_book_path, method: :delete) do |f| %>
+    <p>Are you sure you want to delete the user book?</p>
+    <p><b>User:</b> <%= User.where(id: @user_book.user_id).last.username %></p>
+    <p><b>Book:</b> <%= Book.where(id: @user_book.book_id).last.title %></p>
+    <%= f.submit("Delete User Book") %>
+<% end %>
